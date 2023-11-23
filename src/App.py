@@ -17,13 +17,14 @@ def passwod_generator(length=12, include_numbers=True, include_special_chars=Tru
     return password 
    
 def main():
-    print("Please enter the values for below and get the "PASSWORD" ")
+    print("Please enter the values for below and get the password ")
     print("!!!!!!!!!!!!!!!!!!!!!!!!!!!")
     print("---------------------------")
 
     try:
       length = int(input("Enter the desired password length : "))
-      include_digits = input("Include digits ? (Y/N) : ").lower() == 'Y'
+      include_digits = input("Include digits ? (y/n) : ").lower() == 'y'
+      include_special_chars = input("Include special characters? (y/n) :").lower() == 'y'
 
       password = passwod_generator(length, include_digits, include_special_chars)
 
@@ -31,7 +32,9 @@ def main():
 
     except ValueError as e :
         print(f"Error : {e}")
-        
+
+if __name__ == "__main__":
+  main()
 
         
           
