@@ -3,10 +3,10 @@ import string
 
 # Password Generator 
 
-def passwod_generator(length=12, include_numbers=True, include_spl_character=True):
+def passwod_generator(length=12, include_numbers=True, include_special_chars=True):
     letters = string.ascii_letters
     digits = string.digits if include_numbers else ''
-    special_chars = string.punctuation if include_spl_character else ''
+    special_chars = string.punctuation if include_special_chars else ''
 
     all_chars = letters + digits + special_chars
 
@@ -14,4 +14,25 @@ def passwod_generator(length=12, include_numbers=True, include_spl_character=Tru
         raise ValueError("Password Length should be at least 5")
     password =''.join(random.choice(all_chars) for _ in range(length)) 
 
-    return password    
+    return password 
+   
+def main():
+    print("Please enter the values for below and get the "PASSWORD" ")
+    print("!!!!!!!!!!!!!!!!!!!!!!!!!!!")
+    print("---------------------------")
+
+    try:
+      length = int(input("Enter the desired password length : "))
+      include_digits = input("Include digits ? (Y/N) : ").lower() == 'Y'
+
+      password = passwod_generator(length, include_digits, include_special_chars)
+
+      print(f"Generated Password : {password}")
+
+    except ValueError as e :
+        print(f"Error : {e}")
+        
+
+        
+          
+    
